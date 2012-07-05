@@ -304,6 +304,10 @@
 		 * @public
 		 */
 		me.beginUpload = function() {
+			// do not do anything if an upload is already in progress
+			if (me.isUploadInProgress()) {
+				return;
+			}
 			options.uploadStart.call(me);
 			var concurrent = options.uploadConcurrency;
 			uploadsInProgress = concurrent;
