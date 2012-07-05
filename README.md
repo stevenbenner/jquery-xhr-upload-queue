@@ -1,9 +1,9 @@
 # jQuery XHR Upload Queue
 
-jQuery plugin that creates a queued file uploading framework that implements [XMLHttpRequest Level 2](http://www.w3.org/TR/XMLHttpRequest/), the [FileAPI](http://www.w3.org/TR/FileAPI/), and the [Drag and Drop API](http://www.w3.org/TR/html5/dnd.html).
+jQuery plugin that creates a queued file uploading framework that implements [XHR2](http://www.w3.org/TR/XMLHttpRequest/), the [FileAPI](http://www.w3.org/TR/FileAPI/), and the [Drag and Drop API](http://www.w3.org/TR/html5/dnd.html).
 
 ## Summary
-This plugin creates a file uploading queue that will asynchronously upload files via the web browser using an XMLHttpRequest. It will automatically hook drag and drop events to accept file drops, form submit events (if the selected element is a form), and change events to any file select form fields found.
+This plugin creates a file uploading queue that will asynchronously upload files via the web browser using an XMLHttpRequest. It will automatically hook drag and drop events to accept file drops, form submit events (if the selected element is a form), and change events to any file select form fields that it finds.
 
 It is up to you to build the UI and implement the events via callbacks through the plugin.
 
@@ -17,7 +17,7 @@ It is up to you to build the UI and implement the events via callbacks through t
 * Lightweight and memory efficient
 * Works with large files
 * No dependencies other than jQuery core (1.7+).
-* Entirely free and open source.
+* Entirely free and open source
 
 ## Usage
 You'll find using this plugin a bit more complicated than some of the other options, since this plugin doesn't build the UI for you.
@@ -42,7 +42,7 @@ Here is a very basic example using the plugin:
 
 #### JavaScript
 ```javascript
-$('#myUploadForm').xhrUploadQueue({
+$('#uploadform').xhrUploadQueue({
 	postUrl: '/path/to/upload.json.php',
 
 	queueAdd: function(file) {
@@ -54,8 +54,7 @@ $('#myUploadForm').xhrUploadQueue({
 			'	<progress class="fileprogress" max="' + file.size + '" value="0"></progress>',
 			'</div>'].join(''));
 		var progressBar = fileUploadStatus.find('progress'),
-			percentText = fileUploadStatus.find('.filestatus'),
-			moreInfo = fileUploadStatus.find('.transferrate');
+			percentText = fileUploadStatus.find('.filestatus');
 
 		// add the detail view to the file list
 		$('#filelist').append(fileUploadStatus);
@@ -79,12 +78,12 @@ $('#myUploadForm').xhrUploadQueue({
 ```
 
 #### What this code does
-* Setup the plugin on the `#myUploadForm` element, which in this example is a form.
+* Setup the plugin on the `#uploadform` element, which in this example is a form.
 * Set the `postUrl` option and the `queueAdd` callback.
 * When a file is added to the queue (via file input or drag and drop) it will create a new `#uploaditem` div with the file name, upload status, and progress bar.
-* It hooks the `progress`, `endSend`, and `sendFail` callbacks on the file to update the status text, progress bar, and alert the user when the upload finishes or fails.
+* Hooks up the `progress`, `endSend`, and `sendFail` callbacks on the file to update the status text, progress bar, and alert the user when the upload finishes or fails.
 
-Since `#myUploadForm`  is a form, the plugin will hook the submit event to trigger the upload process so you don't have to set it up manually.
+Since `#uploadform`  is a form, the plugin will hook the submit event to trigger the upload process so you don't have to set it up manually.
 
 ## Options
 ### System Settings
@@ -123,10 +122,10 @@ Since `#myUploadForm`  is a form, the plugin will hook the submit event to trigg
 | processFileList | function(files) { return files; } | Function | Custom file pre-filtering code. This will get executed on the FileList before it gets filtered by the normal filters. This function must return an array of files to add to the queue. |
 
 ## Callback Details
-The plugin makes all of its magic happen via callbacks. Wherever possible it tries for follow the jQuery pattern for naming and attaching callbacks. You will be placing your callbacks in the options object defined above.
+The plugin makes all of its magic happen via callbacks. Wherever possible it tries for follow the jQuery pattern for naming and attaching callbacks.
 
 ### Plugin Callbacks
-These callback are all either associated to the base plugin functions or its FileQueue functions. You set them directly in the options object passed to `xhrUpload()`.
+These callback are all either associated to the base plugin functions or its FileQueue functions. You set them directly in the options object passed to `xhrUploadQueue()`.
 
 * **init()** This happens once for each matched element. This callback will only be invoked if the plugin has detected the browser features needed for full support.
 * **queueAdd(FileUpload)** This happens to every individual file added to the queue, and this is where most of your development will likely take place. It passes the FileUpload object of the file that has been added to the queue, exposing it so you can hook individual events for each file.
@@ -135,8 +134,8 @@ These callback are all either associated to the base plugin functions or its Fil
 * **uploadStart()** This callback is invoked when the process of sending the queued files begins.
 * **uploadFinish()** This callback is invoked when all files have finished uploading (even if they all failed or were aborted).
 * **handleUnacceptedFiles(FileUploads)** This callback is invoked when the user has attempted to add files that were not accepted because they are too large, not an accepted MIME type, the queue is full, or, if the ` silenceZeroByteErrors` option is set to false, when the file is zero bytes in size. It passes an array of FileUploads with the error property set to the appropriate FileError.
-* **noSupport()** This callback is invoked if the script has not detected the features necessary to operate. This can only happen once per ` xhrUpload()` call, no matter how many matched elements were selected.
-* **processFileList(FileUploads)** This is a hook that allows you to do custom pre-filtering of the file list, before the list gets filtered by the regular size, MIME, and queue limit code. This callback must return the list of files that you want to have added to the queue.
+* **noSupport()** This callback is invoked if the script has not detected the features necessary to operate. This can only happen once per ` xhrUploadQueue()` call, no matter how many matched elements were selected.
+* **processFileList(FileUploads)** This is a hook that allows you to do custom pre-filtering of the file list, before the list gets filtered by the regular size, MIME, and queue limit code. This callback must return an array of FileUploads that you want to have added to the queue.
 
 ### FileUpload Callbacks
 Since file specific functionality is often unique to each individual file and file uploads a handled one file at a time, the callbacks are attached directly to the FileUpload object. This makes building the interface a little easier and lets you take better advantage of closures.
@@ -189,7 +188,7 @@ This object exposes several properties and methods that you will need to build y
 * **removeFromQueue()** Removes the file from the upload queue.
 
 ### FileError Enumeration
-The FileError enum is attached to a FileUpload's error property when that file is not accepted into the queue. You can use this enumeration to check what caused the file to be rejected. It is public and available at `$.fn.xhrUpload.FileError`. It has the following values `QUEUE_FULL`, `FILE_TOO_LARGE`, `UNACCEPTED_MIME_TYPE`, and `ZERO_BYTE_FILE`.
+The FileError enum is attached to a FileUpload's error property when that file is not accepted into the queue. You can use this enumeration to check what caused the file to be rejected. It is public and available at `$.fn.xhrUploadQueue.FileError`. It has the following values `QUEUE_FULL`, `FILE_TOO_LARGE`, `UNACCEPTED_MIME_TYPE`, and `ZERO_BYTE_FILE`.
 
 ## Browser Support
 Full support for this plugin requires a browser that supports both FileAPI and XMLHttpRequest Level 2. Currently the browsers that meet the requirements for full support are Firefox, Chrome, Safari, Opera, Opera Mobile and Android Browser. Current versions of Internet Explorer, iOS Safari, and Opera Mini do not support the needed features. The next major version of Internet Explorer will support these features.
