@@ -164,6 +164,7 @@ This is the heart of the plugin, an object that manages the queue. All of the ba
 * **removeFile(FileUpload)** Removes the specified FileUpload from the queue.
 * **emptyQueue()** Removes all files from the queue.
 * **beginUpload()** Begins the queue file uploading process.
+* **isUploadInProgress()** Checks if the queue is currently uploading files. Returns a boolean.
 
 ### FileUpload Object
 This is the object you will have to interact with the most. The `queueAdd` and `queueRemove` callbacks both receive a FileUpload object as an argument, and the `handleUnacceptedFiles` and `processFileList` callbacks both receive an array of FileUpload objects as an argument.

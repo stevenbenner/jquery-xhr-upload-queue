@@ -312,6 +312,15 @@
 			}
 		};
 
+		/**
+		 * Checks if the queue is currently uploading files.
+		 * @public
+		 * @return {Boolean}
+		 */
+		me.isUploadInProgress = function() {
+			return uploadsInProgress > 0;
+		};
+
 		// private methods
 
 		/**
