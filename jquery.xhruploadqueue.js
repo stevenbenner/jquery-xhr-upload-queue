@@ -33,7 +33,7 @@
 			return this;
 		}
 
-		// extended options
+		// extend options
 		var options = $.extend({}, $.fn.xhrUploadQueue.defaults, opts);
 
 		// test for FilesAPI and XHR2 support
@@ -162,7 +162,7 @@
 	};
 
 	/**
-	 * Enumeration of file errors
+	 * Enumeration of file errors.
 	 * @enum {String}
 	 */
 	$.fn.xhrUploadQueue.FileError = {
@@ -196,7 +196,6 @@
 
 		/**
 		 * Adds one or more files to the queue.
-		 * @method addFiles
 		 * @public
 		 * @param {File} files The FilesAPI Files to add to the queue.
 		 */
@@ -370,7 +369,7 @@
 	 * @private
 	 * @constructor
 	 * @this {FileUpload}
-	 * @param {Object} file FilesAPI File object
+	 * @param {Object} file FilesAPI File object to use.
 	 * @param {FileQueue} myQueue FileQueue that this file belongs to.
 	 * @param {Function} doneCallback Callback to execute when the upload finishes.
 	 */
