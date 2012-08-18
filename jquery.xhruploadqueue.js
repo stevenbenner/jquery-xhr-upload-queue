@@ -197,7 +197,7 @@
 		/**
 		 * Adds one or more files to the queue.
 		 * @public
-		 * @param {File} files The FilesAPI Files to add to the queue.
+		 * @param {Array.<File>} files Array of FileAPI File objects to add to the queue.
 		 */
 		me.addFiles = function(fileList) {
 			var fileUploadList,
