@@ -414,7 +414,7 @@
 		 * @param {Object=} additionalFormData Additional form data to post.
 		 */
 		me.uploadFile = function(postUrl, fieldName, additionalFormData) {
-			var fd = new FormData(),
+			var fd = new window.FormData(),
 				lastBytesLoaded = 0,
 				lastTime = $.now();
 
