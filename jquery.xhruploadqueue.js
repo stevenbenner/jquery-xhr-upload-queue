@@ -1,15 +1,15 @@
 /**
- * jQuery XHR Upload Queue Plugin
+ * XHR Upload Queue
  *
- * @fileoverview jQuery plugin that creates a queued file uploading framework
- * using XHR2, the FileAPI, and the Drag and Drop API.
- * @link https://github.com/stevenbenner/jquery-xhr-upload-queue
- * @author Steven Benner
- * @version 1.0
- * @requires jQuery 1.7 or later
- * @license jQuery XHR Upload Queue Plugin
- * <https://github.com/stevenbenner/jquery-xhr-upload-queue>
- * Copyright (c) 2012 Steven Benner, http://stevenbenner.com/
+ * @fileoverview  jQuery plugin that creates a queued file uploading framework.
+ * @link          https://github.com/stevenbenner/jquery-xhr-upload-queue
+ * @author        Steven Benner (http://stevenbenner.com/)
+ * @version       1.0.0
+ * @requires      jQuery 1.7+
+ *
+ * @license jQuery XHR Upload Queue Plugin v1.0.0
+ * https://github.com/stevenbenner/jquery-xhr-upload-queue
+ * Copyright 2012 Steven Benner (http://stevenbenner.com/)
  * Released under the MIT license.
  * <https://raw.github.com/stevenbenner/jquery-xhr-upload-queue/master/LICENSE.txt>
  */
