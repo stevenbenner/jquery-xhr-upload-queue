@@ -14,7 +14,7 @@
  * <https://raw.github.com/stevenbenner/jquery-xhr-upload-queue/master/LICENSE.txt>
  */
 
-(function($, undefined) {
+(function($, window, undefined) {
 	'use strict';
 
 	// detect features
@@ -497,4 +497,4 @@
 		event.preventDefault();
 	}
 
-}(jQuery));
+}(jQuery, window));
