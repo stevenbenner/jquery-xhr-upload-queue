@@ -9,7 +9,7 @@
  *
  * @license jQuery XHR Upload Queue Plugin v1.0.0
  * https://github.com/stevenbenner/jquery-xhr-upload-queue
- * Copyright 2012 Steven Benner (http://stevenbenner.com/)
+ * Copyright 2013 Steven Benner (http://stevenbenner.com/)
  * Released under the MIT license.
  * <https://raw.github.com/stevenbenner/jquery-xhr-upload-queue/master/LICENSE.txt>
  */
