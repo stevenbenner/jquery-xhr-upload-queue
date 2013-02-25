@@ -1,4 +1,5 @@
 $(function() {
+	'use strict';
 
 	test('test environment', function() {
 		ok(window.FileReader !== undefined, 'window.FileReader is defined');
@@ -57,7 +58,7 @@ $(function() {
 
 	test('add support class', function() {
 		var form = $('<form></form>').xhrUploadQueue();
-		ok(form.hasClass($.fn.xhrUploadQueue.defaults.fullSupportClass), 'fullSupportClass added')
+		ok(form.hasClass($.fn.xhrUploadQueue.defaults.fullSupportClass), 'fullSupportClass added');
 	});
 
 	test('queue callbacks fire', function() {
