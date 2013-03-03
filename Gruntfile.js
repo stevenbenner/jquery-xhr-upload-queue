@@ -128,5 +128,6 @@ module.exports = function(grunt) {
 	grunt.registerTask('build:js', [ 'concat', 'jshint', 'qunit', 'uglify' ]);
 	grunt.registerTask('build:docs', [ 'copy' ]);
 	grunt.registerTask('build:release', [ 'clean', 'build', 'compress' ]);
+	grunt.registerTask('travis', [ 'concat', 'jshint', 'qunit' ]);
 
 };
