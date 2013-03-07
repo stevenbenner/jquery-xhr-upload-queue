@@ -47,7 +47,8 @@ $.fn.xhrUploadQueue = function(opts) {
 	return this.each(function() {
 
 		var $this = $(this),
-			fileQueue = new FileQueue(options);
+			fileQueue = new FileQueue(options),
+			fileInputs;
 
 		// add data reference to the FileQueue
 		$this.data('fileQueue', fileQueue);
@@ -91,7 +92,7 @@ $.fn.xhrUploadQueue = function(opts) {
 				$this.attr('accept', options.acceptedMimeTypes.join(','));
 			}
 		} else {
-			var fileInputs = $this.find('input[type=file]');
+			fileInputs = $this.find('input[type=file]');
 			fileInputs.on('change', function() {
 				fileQueue.addFiles(this.files);
 			});
