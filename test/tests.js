@@ -64,37 +64,37 @@ $(function() {
 	test('queue callbacks fire', function() {
 		expect(13);
 
-		var lastFile = null;
-		var form = $('<form></form>').xhrUploadQueue({
-			acceptedMimeTypes: [ 'text/plain' ],
-			init: function() {
-				ok(this instanceof Object, 'init callback fired with context');
-			},
-			queueAdd: function(file) {
-				ok(this instanceof Object, 'queueAdd callback fired with context');
-				equal(file.name, 'test.txt', 'file name is correct');
-				lastFile = file;
-			},
-			queueChange: function() {
-				ok(this instanceof Object, 'queueChange callback fired with context');
-			},
-			queueRemove: function() {
-				ok(this instanceof Object, 'queueRemove callback fired with context');
-			},
-			handleUnacceptedFiles: function() {
-				ok(this instanceof Object, 'handleUnacceptedFiles callback fired with context');
-			},
-			uploadStart: function() {
-			},
-			uploadFinish: function() {
-			},
-			noSupport: function() {
-			},
-			processFileList: function(files) {
-				ok(this instanceof Object, 'processFileList callback fired with context');
-				return files;
-			}
-		});
+		var lastFile = null,
+			form = $('<form></form>').xhrUploadQueue({
+				acceptedMimeTypes: [ 'text/plain' ],
+				init: function() {
+					ok(this instanceof Object, 'init callback fired with context');
+				},
+				queueAdd: function(file) {
+					ok(this instanceof Object, 'queueAdd callback fired with context');
+					equal(file.name, 'test.txt', 'file name is correct');
+					lastFile = file;
+				},
+				queueChange: function() {
+					ok(this instanceof Object, 'queueChange callback fired with context');
+				},
+				queueRemove: function() {
+					ok(this instanceof Object, 'queueRemove callback fired with context');
+				},
+				handleUnacceptedFiles: function() {
+					ok(this instanceof Object, 'handleUnacceptedFiles callback fired with context');
+				},
+				uploadStart: function() {
+				},
+				uploadFinish: function() {
+				},
+				noSupport: function() {
+				},
+				processFileList: function(files) {
+					ok(this instanceof Object, 'processFileList callback fired with context');
+					return files;
+				}
+			});
 
 		form.trigger($.Event('drop', { originalEvent: { dataTransfer: { files: [ new MockFile(100, 'test.txt', 'text/plain') ] } } }));
 		form.trigger($.Event('drop', { originalEvent: { dataTransfer: { files: [ new MockFile(100, 'test.txt', 'text/plain') ] } } }));
@@ -121,13 +121,12 @@ $(function() {
 	});
 
 	test('hook form submit event', function() {
-		var uploadStart = false;
-
-		var form = $('<form></form>').xhrUploadQueue({
-			uploadStart: function() {
-				uploadStart = true;
-			}
-		});
+		var uploadStart = false,
+			form = $('<form></form>').xhrUploadQueue({
+				uploadStart: function() {
+					uploadStart = true;
+				}
+			});
 
 		form.trigger('submit');
 		ok(uploadStart, 'form submitted');
