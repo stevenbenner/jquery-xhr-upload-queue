@@ -1,5 +1,6 @@
 {
 	"name": "xhr-upload-queue",
+	"title": "XHR Upload Queue",
 	"description": "A jQuery plugin that creates a queued file uploading framework.",
 	"version": "1.0.1pre",
 	"homepage": "https://github.com/stevenbenner/jquery-xhr-upload-queue",
