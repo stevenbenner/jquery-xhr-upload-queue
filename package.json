@@ -17,7 +17,7 @@
 	"licenses": [
 		{
 			"type": "MIT",
-			"url": "http://stevenbenner.github.com/jquery-xhr-upload-queue/blob/master/LICENSE.txt"
+			"url": "https://raw.github.com/stevenbenner/jquery-xhr-upload-queue/master/LICENSE.txt"
 		}
 	],
 	"devDependencies": {
