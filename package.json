@@ -1,6 +1,5 @@
 {
 	"name": "xhr-upload-queue",
-	"title": "XHR Upload Queue",
 	"description": "A jQuery plugin that creates a queued file uploading framework.",
 	"version": "1.0.1pre",
 	"homepage": "https://github.com/stevenbenner/jquery-xhr-upload-queue",
@@ -21,7 +20,6 @@
 			"url": "http://stevenbenner.github.com/jquery-xhr-upload-queue/blob/master/LICENSE.txt"
 		}
 	],
-	"dependencies": {},
 	"devDependencies": {
 		"grunt": "~0.4",
 		"grunt-contrib-watch": "~0.3",
@@ -35,6 +33,5 @@
 	},
 	"scripts": {
 		"test": "grunt travis --verbose"
-	},
-	"keywords": []
+	}
 }
