@@ -24,7 +24,8 @@ module.exports = function(grunt) {
 			'*/\n'
 		].join('\n'),
 		clean: {
-			dist: [ '<%= buildpath %>' ]
+			dist: [ '<%= buildpath %>' ],
+			temp: [ '<%= buildpath %>/temp/' ]
 		},
 		jshint: {
 			grunt: {
@@ -47,19 +48,37 @@ module.exports = function(grunt) {
 			}
 		},
 		concat: {
-			dist: {
+			options: {
+				stripBanners: true
+			},
+			core: {
 				src: [
-					'src/intro.js',
 					'src/core.js',
 					'src/filequeue.js',
 					'src/fileupload.js',
-					'src/utility.js',
+					'src/utility.js'
+				],
+				dest: '<%= buildpath %>/temp/core.js'
+			},
+			dist: {
+				src: [
+					'src/intro.js',
+					'<%= buildpath %>/temp/core.js',
 					'src/outro.js'
 				],
 				dest: '<%= buildpath %>/<%= files.cat %>',
 				options: {
-					banner: '<%= banner %>',
-					stripBanners: true
+					banner: '<%= banner %>'
+				}
+			}
+		},
+		indent: {
+			core: {
+				src: [ '<%= buildpath %>/temp/core.js' ],
+				dest: '<%= buildpath %>/temp/core.js',
+				options: {
+					style: 'tab',
+					change: 1
 				}
 			}
 		},
@@ -121,13 +140,14 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-uglify');
 	grunt.loadNpmTasks('grunt-contrib-copy');
 	grunt.loadNpmTasks('grunt-contrib-compress');
+	grunt.loadNpmTasks('grunt-indent');
 
 	// register grunt tasks
 	grunt.registerTask('default', [ 'build:js' ]);
 	grunt.registerTask('build', [ 'build:js', 'build:docs' ]);
-	grunt.registerTask('build:js', [ 'concat', 'jshint', 'qunit', 'uglify' ]);
+	grunt.registerTask('build:js', [ 'concat:core', 'indent', 'concat:dist', 'clean:temp', 'jshint', 'qunit', 'uglify' ]);
 	grunt.registerTask('build:docs', [ 'copy' ]);
-	grunt.registerTask('build:release', [ 'clean', 'build', 'compress' ]);
-	grunt.registerTask('travis', [ 'concat', 'jshint', 'qunit' ]);
+	grunt.registerTask('build:release', [ 'clean:dist', 'build', 'compress' ]);
+	grunt.registerTask('travis', [  'concat:core', 'indent', 'concat:dist', 'clean:temp', 'jshint', 'qunit' ]);
 
 };
