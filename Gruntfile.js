@@ -131,6 +131,9 @@ module.exports = function(grunt) {
 		}
 	});
 
+	// force unix style line endings
+	grunt.util.linefeed = '\n';
+
 	// load grunt plugins
 	grunt.loadNpmTasks('grunt-contrib-watch');
 	grunt.loadNpmTasks('grunt-contrib-clean');
