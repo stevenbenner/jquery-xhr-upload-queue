@@ -91,7 +91,8 @@ module.exports = function(grunt) {
 					'<%= buildpath %>/<%= files.min %>': '<%= buildpath %>/<%= files.cat %>'
 				},
 				options: {
-					banner: '<%= banner %>'
+					banner: '<%= banner %>',
+					report: 'gzip'
 				}
 			}
 		},
