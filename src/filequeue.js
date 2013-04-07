@@ -37,7 +37,8 @@ function FileQueue(options) {
 	me.addFiles = function(fileList) {
 		var fileUploadList,
 			skippedFiles = [],
-			queueLength = me.length;
+			queueLength = me.length,
+			totalBytes = 0;
 
 		// create list of FileUpload objects
 		fileUploadList = $.map(fileList, function(file) {
@@ -73,6 +74,13 @@ function FileQueue(options) {
 				return false; // grep fail
 			}
 
+			// dont accept a file that will surpass the queue byte limit
+			if (options.maximumBytesInQueue && me.totalBytesInQueue + totalBytes + file.size > options.maximumBytesInQueue) {
+				file.error = $.fn.xhrUploadQueue.FileError.QUEUE_FULL;
+				skippedFiles.push(file);
+				return false; //grep fail
+			}
+
 			// limit queue
 			if (queueLength >= options.maximumQueueSize) {
 				file.error = $.fn.xhrUploadQueue.FileError.QUEUE_FULL;
@@ -82,6 +90,7 @@ function FileQueue(options) {
 
 			// grep pass
 			queueLength++;
+			totalBytes += file.size;
 			return true;
 
 		});

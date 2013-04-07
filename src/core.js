@@ -121,6 +121,7 @@ $.fn.xhrUploadQueue.defaults = {
 
 	// system settings
 	maximumQueueSize: 10,
+	maximumBytesInQueue: 0,
 	maximumFileSize: 1048576,
 	uploadConcurrency: 2,
 	acceptedMimeTypes: [],
