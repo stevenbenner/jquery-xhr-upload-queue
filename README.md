@@ -92,6 +92,7 @@ Since `#uploadform`  is a form, the plugin will hook the submit event to trigger
 | Name | Default | Type | Description |
 | ----- | ----- | ----- | ----- |
 | maximumQueueSize | 10 | Number | Maximum number of files to let the user queue for upload. |
+| maximumBytesInQueue | 0 | Number | Maximum combined queue size in bytes. 0 is unlimited. |
 | maximumFileSize | 1048576 | Number |  Maximum size of files accepted, in bytes. |
 | uploadConcurrency | 2 | Number |  Number of parallel uploads to run. |
 | acceptedMimeTypes | []| Array |  MIME types to accept for upload. This accepts the same MIME names as the HTML5 accept attribute. (e.g. 'video/*', 'image/png'). Leave blank to accept all types. |
