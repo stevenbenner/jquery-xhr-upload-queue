@@ -91,38 +91,38 @@ Since `#uploadform`  is a form, the plugin will hook the submit event to trigger
 ### System Settings
 | Name | Default | Type | Description |
 | ----- | ----- | ----- | ----- |
-| maximumQueueSize | 10 | Number | Maximum number of files to let the user queue for upload. |
-| maximumBytesInQueue | 0 | Number | Maximum combined queue size in bytes. 0 is unlimited. |
-| maximumFileSize | 1048576 | Number |  Maximum size of files accepted, in bytes. |
-| uploadConcurrency | 2 | Number |  Number of parallel uploads to run. |
-| acceptedMimeTypes | []| Array |  MIME types to accept for upload. This accepts the same MIME names as the HTML5 accept attribute. (e.g. 'video/*', 'image/png'). Leave blank to accept all types. |
-| postUrl | 'upload.php' | String |  URL to post the AJAX requests to. |
-| filesInputName | 'filesinput' | String | Field name to use for the file in the AJAX post. |
-| hookDragAndDrop | true | Boolean |  Enable or disable drag and drop. |
-| customFormData | null | Object | Form data to send with the AJAX post. Example `{ field1: 'field value', field2: 'another value' }`. |
-| silenceZeroByteErrors | true | Boolean | Enable or disable sending errors about zero-byte files (i.e. folders) to the ` handleUnacceptedFiles` callback. |
+| `maximumQueueSize` | `10` | Number | Maximum number of files to let the user queue for upload. |
+| `maximumBytesInQueue` | `0` | Number | Maximum combined queue size in bytes. 0 is unlimited. |
+| `maximumFileSize` | `1048576` | Number |  Maximum size of files accepted, in bytes. |
+| `uploadConcurrency` | `2` | Number |  Number of parallel uploads to run. |
+| `acceptedMimeTypes` | `[]` | Array |  MIME types to accept for upload. This accepts the same MIME names as the HTML5 accept attribute. (e.g. 'video/*', 'image/png'). Leave blank to accept all types. |
+| `postUrl` | `'upload.php'` | String |  URL to post the AJAX requests to. |
+| `filesInputName` | `'filesinput'` | String | Field name to use for the file in the AJAX post. |
+| `hookDragAndDrop` | `true` | Boolean |  Enable or disable drag and drop. |
+| `customFormData` | `null` | Object | Form data to send with the AJAX post. Example `{ field1: 'field value', field2: 'another value' }`. |
+| `silenceZeroByteErrors` | `true` | Boolean | Enable or disable sending errors about zero-byte files (i.e. folders) to the ` handleUnacceptedFiles` callback. |
 
 ### Class Names
 | Name | Default | Type | Description |
 | ----- | ----- | ----- | ----- |
-| hoverClass | 'draghover' | String | Class name to attach to the matched element when a drag and drop hover is in progress. Note that the `:hover` CSS pseudo class is not triggered for drag and drop hovers. |
-| fullSupportClass | 'fullsupport' | String | Class name for full feature support. |
-| noSupportClass | 'nosupport' | String | Class name for no feature support. |
-| noFilesAPIClass | 'nofilesapi' | String | Class name for no FileAPI support. |
-| noXHR2Class | 'noxhr2' | String | Class name for no XHR2 support. |
+| `hoverClass` | `'draghover'` | String | Class name to attach to the matched element when a drag and drop hover is in progress. Note that the `:hover` CSS pseudo class is not triggered for drag and drop hovers. |
+| `fullSupportClass` | `'fullsupport'` | String | Class name for full feature support. |
+| `noSupportClass` | `'nosupport'` | String | Class name for no feature support. |
+| `noFilesAPIClass` | `'nofilesapi'` | String | Class name for no FileAPI support. |
+| `noXHR2Class` | `'noxhr2'` | String | Class name for no XHR2 support. |
 
 ### Callbacks
 | Name | Default | Type | Description |
 | ----- | ----- | ----- | ----- |
-| init | $.noop | Function | Initialization callback. This callback will only be invoked if the plugin has detected full feature support. |
-| queueAdd | $.noop | Function | File added to queue callback. |
-| queueChange | $.noop | Function | Queue changed (file added or removed). |
-| queueRemove | $.noop | Function | File removed from queue callback. |
-| uploadStart | $.noop | Function | Begin upload of queued files. |
-| uploadFinish | $.noop | Function | End upload of queued files. |
-| handleUnacceptedFiles | $.noop | Function | Handle unaccepted files callback. |
-| noSupport | $.noop | Function | No support callback. This callback will only be invoked if the plugin has detected that it does not have full feature support. |
-| processFileList | function(files) { return files; } | Function | Custom file pre-filtering code. This will get executed on the FileList before it gets filtered by the normal filters. This function must return an array of files to add to the queue. |
+| `init` | `$.noop` | Function | Initialization callback. This callback will only be invoked if the plugin has detected full feature support. |
+| `queueAdd` | `$.noop` | Function | File added to queue callback. |
+| `queueChange` | `$.noop` | Function | Queue changed (file added or removed). |
+| `queueRemove` | `$.noop` | Function | File removed from queue callback. |
+| `uploadStart` | `$.noop` | Function | Begin upload of queued files. |
+| `uploadFinish` | `$.noop` | Function | End upload of queued files. |
+| `handleUnacceptedFiles` | `$.noop` | Function | Handle unaccepted files callback. |
+| `noSupport` | `$.noop` | Function | No support callback. This callback will only be invoked if the plugin has detected that it does not have full feature support. |
+| `processFileList` | `function(f){return f;}` | Function | Custom file pre-filtering code. This will get executed on the FileList before it gets filtered by the normal filters. This function must return an array of files to add to the queue. |
 
 ## Callback Details
 The plugin makes all of its magic happen via callbacks. Wherever possible it tries for follow the jQuery pattern for naming and attaching callbacks.
