@@ -206,9 +206,10 @@ Except for the usual Internet Explorer failure, the latest versions of all moder
 | Google Chrome | 7.0+ | Full support in current version |
 | Apple Safari | 5.1+ | Full support in current version |
 | Opera | 12.0+ | Full support in current version* |
-| Microsoft Internet Explorer | 10+ | **Not supported in current version** |
+| Microsoft Internet Explorer | 10+ | Full support in current version** |
 
-**Opera support is very recent. Version 12 was released on June 14th, 2012. Opera also has the unique quirk of alerting the user with a message box when they try to drag and drop files to a page.*
+* *Opera support is very recent. Version 12 was released on June 14th, 2012. Opera also has the unique quirk of alerting the user with a message box when they try to drag and drop files to a page.*
+* *Internet Explorer support is also very recent. Version 10 was released on February 26th, 2013.*
 
 ### Mobile
 Mobile support is less promising. Most notably missing is iOS, which is lacking the FileAPI and has no estimate of when that feature will be implemented.
