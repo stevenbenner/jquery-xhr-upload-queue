@@ -1,0 +1,27 @@
+{
+	"name": "xhr-upload-queue",
+	"title": "XHR Upload Queue",
+	"description": "A jQuery plugin that creates a queued file uploading framework.",
+	"version": "1.0.1pre",
+	"homepage": "https://github.com/stevenbenner/jquery-xhr-upload-queue",
+	"download": "https://github.com/stevenbenner/jquery-xhr-upload-queue",
+	"docs": "https://github.com/stevenbenner/jquery-xhr-upload-queue",
+	"bugs": "https://github.com/stevenbenner/jquery-xhr-upload-queue/issues",
+	"author": {
+		"name": "Steven Benner",
+		"url": "http://stevenbenner.com/"
+	},
+	"licenses": [
+		{
+			"type": "MIT",
+			"url": "https://raw.github.com/stevenbenner/jquery-xhr-upload-queue/master/LICENSE.txt"
+		}
+	],
+	"dependencies": {
+		"jquery": ">=1.7"
+	},
+	"keywords": [
+		"upload",
+		"ajax"
+	]
+}
