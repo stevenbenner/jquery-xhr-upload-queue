@@ -2,7 +2,7 @@
 
 jQuery plugin that creates a queued file uploading framework that implements [XHR2](http://www.w3.org/TR/XMLHttpRequest/), the [FileAPI](http://www.w3.org/TR/FileAPI/), and the [Drag and Drop API](http://www.w3.org/TR/html5/dnd.html).
 
-[![Build Status](https://travis-ci.org/stevenbenner/jquery-xhr-upload-queue.png?branch=master)](https://travis-ci.org/stevenbenner/jquery-xhr-upload-queue)
+[![Build Status](https://travis-ci.org/stevenbenner/jquery-xhr-upload-queue.png?branch=master)](https://travis-ci.org/stevenbenner/jquery-xhr-upload-queue) [![Dependency Status](https://gemnasium.com/stevenbenner/jquery-xhr-upload-queue.png)](https://gemnasium.com/stevenbenner/jquery-xhr-upload-queue)
 
 ## Summary
 This plugin creates a file uploading queue that will asynchronously upload files via the web browser using an XMLHttpRequest. It will automatically hook drag and drop events to accept file drops, form submit events (if the selected element is a form), and change events to any file select form fields that it finds.
